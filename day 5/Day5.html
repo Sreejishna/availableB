@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TITAN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .header ul {
+      background-color: rgb(152, 110, 6);
+      display: flex;
+      justify-content: space-around;
+      text-decoration: none;
+    }
+
+    .header ul:hover {
+      background-color: blanchedalmond;
+    }
+
+    /* Adding a light overlay so text stays readable */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: blanchedalmond;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 15px;
+      align-items: center;
+    }
+
+    li {
+      padding: 0 10px;
+    }
+
+    .img1.banner img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    
+    .image-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .image-row .img1 {
+      flex: 1;
+      text-align: center;
+    }
+
+    .image-row .img1 img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .tex {
+      margin: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .cards {
+      width: 250px;
+      height: 350px;
+      border: 2px solid white;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 5px 5px 5px rgba(184, 183, 182, 0.8);
+      overflow: hidden;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s;
+    }
+
+    .cards:hover {
+      opacity: 0.8;
+      transform: translateY(-6px);
+    }
+
+    .cardsimg {
+      flex: 1;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .sree {
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    @media (max-width: 768px) {
+      .image-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      .image-row .img1 img {
+        width: 100%;
+      }
+    }
+
+    
+    .circle img {
+      display: block;
+      max-width: 250px;
+      margin: 30px auto;
+      animation: boxAnim 4s ease-in-out infinite;
+      gap: 20px;
+      
+    }
+    .sree{
+
+      padding-bottom: 80px;
+    }
+
+    @keyframes boxAnim {
+      0% { transform: translateY(-50px) rotate(0deg); }
+      50% { transform: translateY(0) rotate(180deg); }
+      100% { transform: translateY(-50px) rotate(360deg); }
+    }
+
+    .circle img:hover {
+      transform: rotate(360deg);
+      cursor: pointer;
+      transition: transform 2s ease-in-out;
+    }
+
+    
+    .circle-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 30px 15px;
+      margin-top: 40px;
+    }
+
+    footer .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      text-align: left;
+    }
+
+    footer .footer-section {
+      max-width: 300px;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+      color:blanchedalmond;
+    }
+
+    footer .social-icons {
+      margin-top: 10px;
+    }
+
+    footer .social-icons a {
+      color: white;
+      margin: 0 8px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    footer .social-icons a:hover {
+      color: pink;
+    }
+
+    footer p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    footer .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      border-top: 1px solid #444;
+      padding-top: 10px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>TITAN</h1>
+    <nav class="nav1">
+      <ul>
+        <li>Men</li>
+        <li>Women</li>
+        <li>Smart Watches</li>
+        <li>Premium Watches</li>
+        <li>International Brands</li>
+      </ul>
+    </nav>
+    <nav class="nav2">
+      <ul>
+        <li><i class="fa-regular fa-circle-user"></i> Account</li>
+        <li><i class="fa-regular fa-heart"></i> Wishlist</li>
+        <li><i class="fa-solid fa-cart-shopping"></i> Cart</li>
+        <li>
+          <a href="https://www.google.com/maps?q=location+titan" target="_blank">
+            Check availability by location <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="img1 banner">
+    <img src="titan.webp" alt="Titan watch collection">
+    <div class="tex">The Best Way to Buy the Products You Love</div>
+  </div>
+
+  <div class="image-row">
+    <div class="img1">
+      <img src="t2.webp" alt="Titan watch collection">
+      <div class="tex">"Titan – Timeless elegance on your wrist."</div>
+    </div>
+    <div class="img1">
+      <img src="t3.webp" alt="Titan watch collection">
+      <div class="tex">"Defining every second in style."</div>
+    </div>
+  </div>
+
+  <div class="cards-container">
+    <div class="cards">
+      <img class="cardsimg" src="sale_.webp" alt="Sale">
+      <p class="sree">Welcome</p>
+    </div>
+    <div class="cards">
+      <img class="cardsimg" src="men_.webp" alt="Men">
+      <p class="sree">Men's Collection</p>
+    </div>
+    <div class="cards">
+      <img class="cardsimg" src="women.webp" alt="Women">
+      <p class="sree">Women's Collection</p>
+    </div>
+    <div class="cards">
+      <img class="cardsimg" src="Mag_category.webp" alt="Couple">
+      <p class="sree">Couple Watches</p>
+    </div>
+  </div>
+
+  <p class="sree">50% sale offer on online platforms like</p>
+  <div class="circle-container">
+    <div class="circle">
+      <a href="https://www.flipkart.com/wearable-smart-devices/smart-watches/titan~brand/pr?sid=ajy,buh" target="_blank">
+        <img src="filp.jpg" alt="Flipkart Offer" />
+      </a>
+    </div>
+    <div class="circle">
+      <img src="ajio.png" alt="Ajio Offer" />
+    </div>
+    <div class="circle">
+      <img src="Amaz.png" alt="Amazon Offer" />
+    </div>
+    <div class="circle">
+      <img src="mynt.jpg" alt="Myntra Offer" />
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-section">
+        <h3>About Titan</h3>
+        <p>Titan is India’s leading watchmaker, blending timeless design with cutting-edge technology. We deliver unmatched style and quality in every timepiece.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@titan.com</p>
+      </div>
+      <div class="footer-section">
+        <h3>Our Location</h3>
+        <p><i class="fa-solid fa-location-dot"></i> Titan Company Ltd, Hosur, Tamil Nadu, India</p>
+        <p><a href="https://www.google.com/maps?q=titan+company" target="_blank" style="color: pink; text-decoration: none;">View on Map</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Titan Watches. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

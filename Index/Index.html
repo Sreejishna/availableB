@@ -1,0 +1,444 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Doctor Strange Landing Page</title> 
+
+  <style> 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 65px; 
+      background: #202020; 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      padding: 0 40px; 
+      z-index: 1000; 
+      border-bottom: 2px solid #e62429;
+    } 
+
+    header h1 {
+      font-size: 26px; 
+      font-weight: bold; 
+      text-transform: uppercase; 
+      color: #e62429; 
+      letter-spacing: 2px; 
+      cursor: pointer; 
+      transition: transform 0.3s ease-in-out;
+    } 
+
+    header h1:hover { transform: scale(1.1); }
+
+    header nav a {
+      color: #fff; 
+      margin-left: 25px; 
+      text-decoration: none; 
+      font-size: 15px; 
+      font-weight: 600; 
+      transition: color 0.3s ease;
+    } 
+    header nav a:hover { color: #e62429; } 
+
+  
+    #container {
+  width: 100vw;               
+  height: 120vh;              
+  background-image: url("dr11.jpg");
+  background-size: cover;     
+  background-position: center; 
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  transform: translateY(-50%);
+}
+
+.arrow img {
+  width: 50px;  
+  height: 50px;
+  cursor: pointer;
+  filter: invert(100%);
+}
+
+
+.mini {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+}
+
+.mini img {
+  width: 100px;   
+  height: 100px;  
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  transition: transform 0.3s;
+}
+
+. mini img:hover {
+  transform: scale(1.1);
+}
+
+
+#overlay {
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px black;
+}
+
+    
+    .cards-container {
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 20px; 
+      padding: 40px 20px; 
+      justify-content: center; 
+    
+    } 
+      
+    .cards {
+      width: 200px; 
+      height: 350px; 
+      border: 2px solid white; 
+      border-radius: 10px; 
+      cursor: pointer; 
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.6); 
+      overflow: hidden; 
+      background: white; 
+      display: flex; 
+      flex-direction: column; 
+      transition: 0.3s; 
+  
+    } 
+      
+    .cards:hover { 
+      opacity: 0.95; 
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.4);
+    } 
+      
+    .cardsimg {
+      flex: 1; 
+      width: 100%; 
+      object-fit: cover;
+    } 
+      
+    .sree { 
+      text-align: center; 
+      padding: 10px; 
+      font-weight: bold; 
+      min-height: 40px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      background: #f4f4f4;
+    } 
+
+   
+    .content {
+      padding: 60px 40px; 
+      font-size: 18px; 
+      line-height: 1.8; 
+      background-color: rgb(171, 173, 172);
+    } 
+
+    .content h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #202020;
+      border-left: 5px solid #e62429;
+      padding-left: 10px;
+      text-transform: uppercase;
+    }
+
+    
+    .photos {
+      display: flex; 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      gap: 20px; 
+      padding: 40px 20px; 
+      background-color: rgb(70, 63, 63);
+    } 
+
+    .photos img {
+      width: 250px; 
+      height: 350px; 
+      object-fit: cover; 
+      border-radius: 20px; 
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    } 
+    .photos img:hover { transform: scale(1.05); }
+
+  
+    section {
+      max-width: 1000px; 
+      margin: 100px auto; 
+      padding: 0 20px;
+    } 
+
+    h2 {
+      font-size: 26px; 
+      text-transform: uppercase; 
+      font-weight: bold; 
+      margin-bottom: 30px; 
+      border-left: 5px solid red; 
+      padding-left: 10px;
+    } 
+
+    .connections {
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+      gap: 20px; 
+      justify-content: center;
+      background-color: rgb(64, 65, 65);
+    } 
+
+    .card {
+      background: #1f1f20; 
+      color: #fff; 
+      border-radius: 6px; 
+      overflow: hidden; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      cursor: pointer;
+    } 
+
+    .card:hover {
+      transform: translateY(-8px); 
+      box-shadow: 0 8px 18px rgba(206, 200, 200, 0.4);
+    } 
+
+    .card img {
+      width: 100%; 
+      height: 280px; 
+      object-fit: cover;
+    } 
+
+    .red-bar { height: 4px; background: #e62429; }
+
+    .card-content { 
+      background: #101010; 
+      padding: 15px; 
+      text-align: left; 
+    } 
+
+    .card h3 {
+      font-size: 14px; 
+      text-transform: uppercase; 
+      font-weight: bold; 
+      margin: 0;
+    } 
+
+    .card p {
+      font-size: 12px; 
+      margin-top: 4px; 
+      color: #bbb;
+    } 
+
+    .card.highlight .card-content { background: #e62429; color: white; }
+
+  
+    .tabs {
+      background: #111; 
+      display: flex; 
+      justify-content: center; 
+      border-top: 4px solid red; 
+      margin-top: 50px;
+    } 
+
+    .tabs a {
+      color: #aaa; 
+      padding: 15px 25px; 
+      text-decoration: none; 
+      font-size: 14px; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      transition: color 0.2s ease;
+    } 
+
+    .tabs a:hover { color: #fff; }
+    .tabs a.active { color: #fff; border-bottom: 4px solid red; }
+
+  
+    footer {
+      background: rgba(32, 32, 28, 0.9); 
+      color: white; 
+      text-align: center; 
+      padding: 20px; 
+      margin-top: 40px; 
+      font-size: 14px;
+      line-height: 1.6;
+    } 
+
+    footer a { 
+      color: rgb(218, 238, 118); 
+      text-decoration: none; 
+      margin-left: 5px; 
+    } 
+
+    footer a:hover { color: #c97b05; }
+  </style> 
+</head> 
+
+<body> 
+  <header> 
+    <h1>Doctor Strange</h1> 
+    <nav> 
+      <a href="#">MOVIE</a> 
+      <a href="#">TV SHOWS</a> 
+      <a href="#">NEWS</a> 
+      <a href="#">COMICS</a> 
+    </nav> 
+  </header> 
+
+<div id="container" style="
+  width: 500px
+  height: 500px;
+  background-image: url('dr11.jpg');
+  background-size: cover;        /* Covers entire container */
+  background-position: center;   /* Centers the image */
+  background-repeat: no-repeat;  /* No tiling */
+  position: relative;
+">
+  <div class="arrow">
+    <img id="arrow1" src="arrowp.jpg" alt="Prev">
+    <img id="arrow2" src="arrowp.jpg" alt="Next">
+  </div>
+
+  <div class="mini">
+    <img src="dr11.jpg" onclick="showmini(0)">
+    <img src="ds12.jpg" onclick="showmini(1)">
+    <img src="ds13.jpg" onclick="showmini(2)">
+    <img src="ds15.jpg" onclick="showmini(4)">
+  </div>
+
+  <div id="overlay"></div>
+</div>
+
+  <script src="9.js.js"></script> 
+
+  <div class="cards-container"> 
+    <div class="cards"> 
+      <img class="cardsimg" src="ds5.jpg" alt="coming"> 
+      <p class="sree">Doctor</p> 
+    </div> 
+    <div class="cards"> 
+      <img class="cardsimg" src="ds9.jpg" alt="coming"> 
+      <p class="sree">Strange</p> 
+    </div> 
+    <div class="cards"> 
+      <img class="cardsimg" src="ds1.jpg" alt="coming"> 
+      <p class="sree">Marvel</p> 
+    </div> 
+    <div class="cards"> 
+      <img class="cardsimg" src="ds2.jpg" alt="coming"> 
+      <p class="sree">Hero</p> 
+    </div> 
+  </div> 
+
+  
+  <div class="content"> 
+    <h2>About Doctor Strange</h2> 
+    <p> 
+      Doctor Stephen Strange, once a brilliant but arrogant neurosurgeon, saw his life take a dramatic turn after a tragic accident robbed him of his surgical skills. In search of healing, he traveled the world and discovered the mystical arts. Under the guidance of the Ancient One, Strange learned to harness magic and protect the Earth from threats that science could not explain. From manipulating time with the Eye of Agamotto to traveling across dimensions, Doctor Strange became the Sorcerer Supreme — the ultimate guardian against dark forces. His story is one of transformation, sacrifice, and wisdom, reminding us that true strength lies not in what we hold, but in what we are willing to let go. 
+      <br><br> 
+      "Marvel India is conducting a quiz. By winning it, you can win a Titan watch. Visit the website for exciting offers." 
+      <br> 
+      <a href="http://127.0.0.1:5500/day%201/Day5.html">TITAN INDIA</a> 
+    </p> 
+  </div> 
+
+
+  <div class="photos"> 
+    <img src="ds2.jpg" alt="Doctor Strange"> 
+    <img src="ds3.jpg" alt="Doctor Strange"> 
+    <img src="ds5.jpg" alt="Doctor Strange"> 
+    <img src="ds4.jpg" alt="Doctor Strange"> 
+  </div> 
+
+
+  <section> 
+    <h2>Connections</h2> 
+    <div class="connections"> 
+      <div class="card"> 
+        <img src="st1.jpg" alt="Wong"> 
+        <div class="red-bar"></div> 
+        <div class="card-content"> 
+          <h3>Wong</h3> 
+          <p>Sorcerer Supreme</p> 
+        </div> 
+      </div> 
+      <div class="card"> 
+        <img src="st3.jpg" alt="America Chavez"> 
+        <div class="red-bar"></div> 
+        <div class="card-content"> 
+          <h3>America Chavez</h3> 
+        </div> 
+      </div> 
+      <div class="card"> 
+        <img src="st4.jpg" alt="Christine Palmer"> 
+        <div class="red-bar"></div> 
+        <div class="card-content"> 
+          <h3>Christine Palmer</h3> 
+        </div> 
+      </div> 
+      <div class="card"> 
+        <img src="st5.jpg" alt="Baron Mordo"> 
+        <div class="red-bar"></div> 
+        <div class="card-content"> 
+          <h3>Baron Mordo</h3> 
+        </div> 
+      </div> 
+    </div> 
+  </section> 
+
+  
+  <div class="tabs"> 
+    <a href="#" class="active">Overview</a> 
+    <a href="#">On Screen Profile</a> 
+    <a href="#">On Screen Full Report</a> 
+    <a href="#">In Comics Profile</a> 
+    <a href="#">In Comics Full Report</a> 
+  </div> 
+
+  
+  <footer> 
+    <p>2025 Doctor Strange Universe | All Rights Reserved</p> 
+    <p>"We never lose our demons, we only learn to live above them." – Ancient One</p> 
+    <p>Follow Marvel: <a href="https://www.marvel.com/" target="_blank">Marvel Official</a></p> 
+  </footer> 
+
+</body> 
+</html
+
+
